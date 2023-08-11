@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledSelect = styled.select`
@@ -13,3 +14,19 @@ const StyledSelect = styled.select`
   font-weight: 500;
   box-shadow: var(--shadow-sm);
 `;
+
+const Select = ({ options, onChange, value, ...props }) => {
+  return (
+    <div>
+      <StyledSelect onChange={onChange} value={value} {...props}>
+        {options.map((option) => (
+          <option value={option.value} key={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </StyledSelect>
+    </div>
+  );
+};
+
+export default Select;
