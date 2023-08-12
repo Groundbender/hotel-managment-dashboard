@@ -1,11 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getBookings } from "../../services/apiBookings";
 import { useSearchParams } from "react-router-dom";
+import { PAGE_SIZE } from "../../utils/constants";
 
 export const useFetchBookings = () => {
   const [searchParams] = useSearchParams();
-
-  // Filter
+  const queryClient = useQueryClient();
+  // FILTER
 
   const filterValue = searchParams.get("status");
 
@@ -15,7 +16,7 @@ export const useFetchBookings = () => {
       : { field: "status", value: filterValue, method: "eq" };
   // { field: "totalPrice", value: 5000, method: "gte" };
 
-  // Sort
+  // SORT
 
   const sortByRaw = searchParams.get("sortBy") || "startDate-desc";
 
@@ -26,14 +27,36 @@ export const useFetchBookings = () => {
     direction,
   };
 
+  // PAGINATION
+
+  const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
+
+  // QUERY
   const {
     isLoading,
-    data: bookings,
+    data: { data: bookings, count } = {},
     error,
   } = useQuery({
-    queryKey: ["bookings", filter, sortBy], // identifier [filter, sortBy] - dependecies to refresh data
-    queryFn: () => getBookings({ filter, sortBy }),
+    queryKey: ["bookings", filter, sortBy, page],
+    queryFn: () => getBookings({ filter, sortBy, page }),
   });
 
-  return { bookings, isLoading, error };
+  // PRE-FETCHING
+  const pageCount = Math.ceil(count / PAGE_SIZE);
+
+  // next page gonna be pre-fetched
+  if (page < pageCount)
+    queryClient.prefetchQuery({
+      queryKey: ["bookings", filter, sortBy, page + 1],
+      queryFn: () => getBookings({ filter, sortBy, page: page + 1 }),
+    });
+
+  // prev page gonna be pre-fetched
+  if (page > 1)
+    queryClient.prefetchQuery({
+      queryKey: ["bookings", filter, sortBy, page - 1],
+      queryFn: () => getBookings({ filter, sortBy, page: page - 1 }),
+    });
+
+  return { bookings, isLoading, error, count };
 };
