@@ -57,6 +57,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   // form logic
   const { register, handleSubmit, reset, getValues, formState } = useForm({
     defaultValues: isEditSession ? editValues : {},
+    mode: "onChange",
   });
 
   // errors
