@@ -7,7 +7,9 @@ import Input from "../../ui/Input";
 import { useUpdateUser } from "./useUpdateUser";
 
 function UpdatePasswordForm() {
-  const { register, handleSubmit, formState, getValues, reset } = useForm();
+  const { register, handleSubmit, formState, getValues, reset } = useForm({
+    mode: "onChange",
+  });
   const { errors } = formState;
 
   const { updateUser, isUpdating } = useUpdateUser();
