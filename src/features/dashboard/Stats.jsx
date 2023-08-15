@@ -11,18 +11,18 @@ import { formatCurrency } from "../../utils/helpers";
 
 const Stats = ({ bookings, confirmedStays, cabinCount, numDays }) => {
   // 1. Bookings
-  const numBookings = bookings.length;
+  const numBookings = bookings?.length;
 
   // 2. Sales
-  const sales = bookings.reduce((acc, val) => acc + val.totalPrice, 0);
+  const sales = bookings?.reduce((acc, val) => acc + val.totalPrice, 0);
 
   //3. Check ins
-  const checkins = confirmedStays.length;
+  const checkins = confirmedStays?.length;
 
   // 4. Occupancy rate
 
   const occupation =
-    confirmedStays.reduce((acc, val) => acc + val.numNights, 0) /
+    confirmedStays?.reduce((acc, val) => acc + val.numNights, 0) /
     (numDays * cabinCount);
 
   // total nights guests stays in
