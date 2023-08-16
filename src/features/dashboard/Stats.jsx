@@ -1,9 +1,7 @@
-import React from "react";
 import Stat from "./Stat";
 import {
   HiOutlineBanknotes,
   HiOutlineBriefcase,
-  HiOutlineCalendar,
   HiOutlineCalendarDays,
   HiOutlineChartBar,
 } from "react-icons/hi2";

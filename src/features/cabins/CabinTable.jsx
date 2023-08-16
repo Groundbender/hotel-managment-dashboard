@@ -1,12 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import styled from "styled-components";
-import { getCabins } from "../../services/apiCabins";
+import { useSearchParams } from "react-router-dom";
+import { useFetchCabins } from "./useFetchCabins";
+
 import Spinner from "../../ui/Spinner";
 import CabinRow from "./CabinRow";
-import { useFetchCabins } from "./useFetchCabins";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
-import { useSearchParams } from "react-router-dom";
 import Empty from "../../ui/Empty";
 
 // const Table = styled.div`

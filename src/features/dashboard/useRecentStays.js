@@ -12,8 +12,6 @@ export const useRecentStays = () => {
 
   const queryDate = subDays(new Date(), numDays).toISOString();
 
-  console.log("querydate", queryDate);
-
   const { isLoading, data: stays } = useQuery({
     queryFn: () => getStaysAfterDate(queryDate),
     queryKey: ["stays", `last-${numDays}`],

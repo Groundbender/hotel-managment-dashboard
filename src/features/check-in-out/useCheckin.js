@@ -16,7 +16,6 @@ export const useCheckin = () => {
     onSuccess: (data) => {
       toast.success(`Booking #${data.id} successfully checked in`);
       queryClient.invalidateQueries({ active: true }); // refetch the data that is currently active on the page
-      console.log(data);
 
       navigate("/");
     },

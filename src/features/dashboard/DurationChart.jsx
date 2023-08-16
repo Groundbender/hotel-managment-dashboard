@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Heading from "../../ui/Heading";
 import {
   Cell,
   Legend,
@@ -9,6 +8,8 @@ import {
   Tooltip,
 } from "recharts";
 import { useDarkMode } from "../../context/DarkModeContext";
+
+import Heading from "../../ui/Heading";
 
 const ChartBox = styled.div`
   /* Box */

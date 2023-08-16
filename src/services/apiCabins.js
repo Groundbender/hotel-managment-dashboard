@@ -4,7 +4,6 @@ export async function getCabins() {
   const { data, error } = await supabase.from("cabins").select("*");
 
   if (error) {
-    console.log(error);
     throw new Error("Cabins could not be loaded");
   }
 
@@ -42,7 +41,6 @@ export async function createEditCabin(newCabin, id) {
   const { data, error } = await query.select().single(); // I added select and single to return new element out of the array;
 
   if (error) {
-    console.log(error);
     throw new Error("Cabin could not be created");
   }
 
@@ -58,7 +56,6 @@ export async function createEditCabin(newCabin, id) {
 
   if (storageError) {
     await supabase.from("cabins").delete().eq("id", data.id);
-    console.log(storageError);
     throw new Error("Cabin could not be uploaded and was not created");
   }
 
@@ -69,7 +66,6 @@ export async function deleteCabin(id) {
   const { data, error } = await supabase.from("cabins").delete().eq("id", id); // id column === id we passed
 
   if (error) {
-    console.log(error);
     throw new Error("Cabin could not be deleted");
   }
 

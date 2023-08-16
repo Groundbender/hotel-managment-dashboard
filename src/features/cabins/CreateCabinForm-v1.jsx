@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -37,7 +36,7 @@ function CreateCabinForm() {
     mutate({ ...data, image: data.image[0] });
   };
   const onError = (errors) => {
-    console.log(errors);
+    // console.log(errors);
   };
 
   return (
