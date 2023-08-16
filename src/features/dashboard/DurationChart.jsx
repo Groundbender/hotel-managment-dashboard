@@ -163,7 +163,11 @@ const DurationChart = ({ confirmedStays }) => {
             paddingAngle={3}
           >
             {data.map((entry) => (
-              <Cell fill={entry.color} stroke={entry.color} />
+              <Cell
+                fill={entry.color}
+                key={entry.duration}
+                stroke={entry.color}
+              />
             ))}
           </Pie>
           <Tooltip />
