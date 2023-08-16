@@ -7,7 +7,7 @@ export const guests = [
     email: "hello@dwayne.io",
     nationality: "United States of America",
     nationalID: "3525436345",
-    countryFlag: "https://flagcdn.com/pt.svg",
+    countryFlag: "https://flagcdn.com/us.svg",
   },
   {
     fullName: "John Smith",
@@ -54,14 +54,14 @@ export const guests = [
     countryFlag: "https://flagcdn.com/gb.svg",
   },
   {
-    fullName: "Mohammed Ali",
-    email: "mohammedali@yahoo.com",
+    fullName: "Mohammed AI",
+    email: "mohammeAI@yahoo.com",
     nationality: "Egypt",
     nationalID: "987543210",
     countryFlag: "https://flagcdn.com/eg.svg",
   },
   {
-    fullName: "Maria Rodriguez",
+    fullName: "Maria Marksman",
     email: "maria@gmail.com",
     nationality: "Spain",
     nationalID: "1098765321",
@@ -75,8 +75,8 @@ export const guests = [
     countryFlag: "https://flagcdn.com/cn.svg",
   },
   {
-    fullName: "Khadija Ahmed",
-    email: "khadija@gmail.com",
+    fullName: "Mohammed Ahmed",
+    email: "muha@gmail.com",
     nationality: "Sudan",
     nationalID: "1023457890",
     countryFlag: "https://flagcdn.com/sd.svg",

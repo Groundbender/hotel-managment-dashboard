@@ -71,8 +71,6 @@ const Menus = ({ children }) => {
   const [openId, setOpenId] = useState("");
   const [position, setPosition] = useState(null);
 
-  console.log(position);
-
   const open = setOpenId;
 
   const close = () => setOpenId("");
@@ -90,6 +88,7 @@ const Toggle = ({ id }) => {
   const { open, close, openId, setPosition } = useContext(MenuContext);
 
   const handleClick = (e) => {
+    e.stopPropagation();
     const rect = e.target.closest("button").getBoundingClientRect();
     setPosition({
       x: window.innerWidth - rect.width - rect.x,
@@ -108,7 +107,7 @@ const Toggle = ({ id }) => {
 const List = ({ id, children }) => {
   const { openId, position, close } = useContext(MenuContext);
 
-  const contextMenuRef = useClickOutside(close, true);
+  const contextMenuRef = useClickOutside(close, false);
 
   if (openId !== id) return null;
 
