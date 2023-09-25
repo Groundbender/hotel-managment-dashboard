@@ -89,6 +89,7 @@ const Toggle = ({ id }) => {
 
   const handleClick = (e) => {
     e.stopPropagation();
+
     const rect = e.target.closest("button").getBoundingClientRect();
     setPosition({
       x: window.innerWidth - rect.width - rect.x,
