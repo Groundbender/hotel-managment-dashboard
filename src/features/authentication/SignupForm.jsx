@@ -40,6 +40,7 @@ function SignupForm() {
           disabled={isLoading}
           type="email"
           id="email"
+          // валидация почты rhf 
           {...register("email", {
             required: "This field is required",
             pattern: {
@@ -58,6 +59,7 @@ function SignupForm() {
           disabled={isLoading}
           type="password"
           id="password"
+
           {...register("password", {
             required: "This field is required",
             minLength: {

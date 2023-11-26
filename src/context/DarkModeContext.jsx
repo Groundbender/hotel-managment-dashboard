@@ -10,7 +10,7 @@ const DarkModeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useLocalStorageState(
     window.matchMedia("(prefers-color-scheme: dark)").matches,
     "isDarkMode"
-  ); // checking the default preferences of the user's browser
+  ); // проверка какая тема у пользователя
 
   useEffect(() => {
     if (isDarkMode) {

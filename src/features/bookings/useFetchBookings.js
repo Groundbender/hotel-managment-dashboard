@@ -44,14 +44,14 @@ export const useFetchBookings = () => {
   // PRE-FETCHING
   const pageCount = Math.ceil(count / PAGE_SIZE);
 
-  // next page gonna be pre-fetched
+  // следующая стр будет взята из кэша 
   if (page < pageCount)
     queryClient.prefetchQuery({
       queryKey: ["bookings", filter, sortBy, page + 1],
       queryFn: () => getBookings({ filter, sortBy, page: page + 1 }),
     });
 
-  // prev page gonna be pre-fetched
+  // предыдущая стр будет взята из кэша 
   if (page > 1)
     queryClient.prefetchQuery({
       queryKey: ["bookings", filter, sortBy, page - 1],

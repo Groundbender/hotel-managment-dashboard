@@ -10,9 +10,9 @@ export const useFetchBooking = () => {
     data: booking,
     error,
   } = useQuery({
-    queryKey: ["booking", bookingId], // identifier
+    queryKey: ["booking", bookingId],
     queryFn: () => getBooking(bookingId),
-    retry: false, // not retry if smth went wrong
+    retry: false, // определяет, будет ли повторяться запрос при возникновении ошибки. Если retry установлен в true, то запрос будет повторяться автоматически при возникновении ошибки. Если установлено в false, то запрос не будет повторяться.
   });
 
   return { booking, isLoading, error };

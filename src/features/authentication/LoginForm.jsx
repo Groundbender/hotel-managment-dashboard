@@ -23,6 +23,7 @@ function LoginForm() {
     login(
       { email, password },
       {
+       //  react query позволяет нам так сделать, когда операция завершится независимо от успеха или ошибки (очищаем форму)  
         onSettled: () => {
           setEmail("");
           setPassword("");
@@ -38,7 +39,6 @@ function LoginForm() {
           disabled={isLoading}
           type="email"
           id="email"
-          // This makes this form better for password managers
           autoComplete="username"
           value={email}
           onChange={(e) => setEmail(e.target.value)}

@@ -7,7 +7,7 @@ export const useFetchCabins = () => {
     data: cabins,
     error,
   } = useQuery({
-    queryKey: ["cabins"], // identifier
+    queryKey: ["cabins"], 
     queryFn: getCabins,
   });
 
